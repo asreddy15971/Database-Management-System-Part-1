@@ -1,0 +1,113 @@
+ASS : 5
+CREATE TABLE Store(
+Name VARCHAR2(20) PRIMARY KEY,
+Location VARCHAR2(30) NOT NULL,
+ManagerName VARCHAR2(30) UNIQUE
+)
+
+ASS : 6
+ALTER TABLE Store RENAME COLUMN Name TO StoreName
+
+ASS : 7
+CREATE TABLE Bill(
+BillNo NUMBER PRIMARY KEY,
+StoreName VARCHAR2(20) REFERENCES Store(StoreName),
+ShopperId NUMBER REFERENCES Shopper(ShopperId),
+Arcode CHAR(5) REFERENCES Article(ArCode),
+Amount NUMBER,
+BillDate DATE,
+Quantity NUMBER(4) DEFAULT 1 CHECK(Quantity>0)
+)
+
+ASS : 8
+CREATE TABLE Supplier(
+SupplierId VARCHAR2(6) PRIMARY KEY,
+Name VARCHAR2(30),
+ContactNo VARCHAR2(15) NOT NULL,
+EmailId VARCHAR2(30)
+)
+
+ASS : 9
+ALTER TABLE Supplier ADD City VARCHAR2(10)
+
+ASS : 10
+ALTER TABLE Supplier DROP (Emailid)
+
+ASS : 11
+CREATE TABLE City(
+  City VARCHAR2(20) UNIQUE
+);
+
+ASS : 12
+ALTER TABLE CITY DROP(CITY);
+or you can also do:
+ALTER TABLE CITY DROP COLUMN CITY;
+
+ASS : 13
+CREATE TABLE Address(
+  HouseNo NUMBER,
+  Street VARCHAR2(30),
+  city VARCHAR2(20) REFERENCES City(city),
+  zip NUMBER(6) CHECK(zip>=0),
+  State VARCHAR2(5),
+  CONSTRAINT address_pk PRIMARY KEY(HouseNo, Street, City)
+)
+
+ASS : 14
+ALTER TABLE Address MODIFY state VARCHAR2(20
+
+EX : 10
+INSERT INTO Salesman VALUES(11, 'Elizabeth', 'London'
+
+EX :10
+INSERT INTO Salesman VALUES(11, 'Elizabeth', 'London')
+
+EX : 11
+INSERT INTO Product VALUES(110, 'Bat', 50, 'Sports', NULL)
+
+EX : 12
+SELECT * FROM Product
+
+EX : 13
+SELECT DISTINCT PRODID , PRICE , CATEGORY FROM Product
+
+EX : 14
+SELECT DISTINCT CATEGORY FROM Product
+
+EX : 15
+SELECT PRODID , PDESC , CATEGORY ,DISCOUNT
+FROM Product WHERE CATEGORY='Apparel'
+
+EX : 16
+SELECT PRODID, PDESC , CATEGORY ,DISCOUNT FROM Product WHERE PDESC IS NULL
+
+EX : 17
+SELECT PRODID, PDESC , CATEGORY ,DISCOUNT FROM Product WHERE CATEGORY='Apparel' AND DISCOUNT>5
+
+EX : 18
+UPDATE Product SET DISCOUNT=25 WHERE CATEGORY='Sports'
+
+EX : 19
+UPDATE Product SET PRICE=50 WHERE CATEGORY='Apparel' AND PDESC='Trouser'
+
+EX : 20
+UPDATE Salesman SET SNAME='Jenny' ,LOCATION='Bristol' WHERE SID=3
+
+EX : 21
+DELETE FROM SaleDetail WHERE SALEID=1004
+
+EX : 22
+DELETE FROM SaleDetail WHERE QUANTITY>5
+
+COL : 15
+
+INSERT INTO Shopper
+(ShopperId, ShopperName, Gender, MobileNo, Address) 
+VALUES 
+(101, 'Mark Jane', 'Male', 1234567890, 'Allen Street, New York')
+
+
+
+
+
+
