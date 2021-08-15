@@ -61,3 +61,17 @@ INSERT INTO CITY VALUES('Mysore')
 
 ASS : 35
 INSERT INTO ADDRESS VALUES (350, 'Electronics City','Mysore',570018,'Karnataka')
+
+ASS : 36
+INSERT INTO Article VALUES
+('A1002','Keyboard',1000,10,'B')
+
+ASS : 37
+SELECT quotationid, qdate, quotedprice FROM Quotation WHERE quotedprice>1400 AND quotedprice<2150
+
+ASS : 38
+SELECT  itemtype, descr, price FROM Item WHERE price > 4000
+
+ASS : 39
+SELECT designation, salary FROM EmpDetails WHERE designation IN ('Manager', 'Billing Staff') AND salary BETWEEN 2500 AND 5000
+
